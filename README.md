@@ -5,7 +5,7 @@ Home: https://pins.rstudio.com/, https://github.com/rstudio/pins
 
 Package license: Apache-2.0
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-pins-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-pins-feedstock/blob/main/LICENSE.txt)
 
 Summary: Publish data sets, models, and other R objects, making it easy to share them across projects and with your colleagues. You can pin objects to a variety of "boards", including local folders (to share on a networked drive or with 'DropBox'), 'RStudio' connect, Amazon S3, and more.
 
@@ -15,8 +15,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15164&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-pins-feedstock?branchName=master">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15164&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-pins-feedstock?branchName=main">
       </a>
     </td>
   </tr>
@@ -39,16 +39,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `r-pins` can be installed with:
+Once the `conda-forge` channel has been enabled, `r-pins` can be installed with `conda`:
 
 ```
 conda install r-pins
 ```
 
-It is possible to list all of the versions of `r-pins` available on your platform with:
+or with `mamba`:
+
+```
+mamba install r-pins
+```
+
+It is possible to list all of the versions of `r-pins` available on your platform with `conda`:
 
 ```
 conda search r-pins --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search r-pins --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search r-pins --channel conda-forge
+
+# List packages depending on `r-pins`:
+mamba repoquery whoneeds r-pins --channel conda-forge
+
+# List dependencies of `r-pins`:
+mamba repoquery depends r-pins --channel conda-forge
 ```
 
 
@@ -66,10 +91,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
