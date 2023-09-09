@@ -1,4 +1,4 @@
-{% set version = "1.2.1" %}
+{% set version = "1.2.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pins_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pins/pins_{{ version }}.tar.gz
-  sha256: 6a271e74917e8c622314c7e70b39c8d28950315780dc6a7410ecd574c7e13800
+  sha256: 3fabb5c6baca5f56ce0d5d0c7df86401f652e1ac168694016b727bdbe399b15e
 
 build:
   merge_build_host: true  # [win]
