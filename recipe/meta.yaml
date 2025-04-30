@@ -1,4 +1,4 @@
-{% set version = "1.4.0" %}
+{% set version = "1.4.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pins_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pins/pins_{{ version }}.tar.gz
-  sha256: 97513f04f4a86764b3d86d1fbe35e7f853d2f81b285c0deddc8f41e9c37f0f1e
+  sha256: f8a401f28d5b332bbf89bab5251c71f132c44d3fdf860ba77e6623c408983df6
 
 build:
   number: 0
